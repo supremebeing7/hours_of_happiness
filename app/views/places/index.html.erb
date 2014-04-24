@@ -1,0 +1,10 @@
+<h1>Places</h1>
+
+<% @places.each do |place| %>
+  <p>
+    Name: <%= place.name %><br>
+    Address: <%= place.address %><br>
+    Description: <%= place.description %><br>
+    Happy Hour Description: <%= place.hh_description %><br>
+  </p>
+<% end %>

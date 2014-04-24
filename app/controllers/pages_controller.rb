@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
   def home
-    @establishments = Establishment.all
+    @places = Place.all
   end
 end
