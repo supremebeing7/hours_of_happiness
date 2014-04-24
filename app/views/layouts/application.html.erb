@@ -9,7 +9,7 @@
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <%= link_to "Open Home", root_url,
+      <%= link_to "Hours of Happiness", root_url,
           :class => "navbar-text navbar-left" %>
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
@@ -24,6 +24,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="container">
     <%= flash[:notice] %>
     <%= flash[:alert] %>

@@ -16,6 +16,7 @@ gem 'cancan'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rest-client'
 gem 'textacular'
+gem 'geocoder'
 
 group :development do
   gem 'better_errors'
