@@ -2,25 +2,38 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <p>
-      Name: <br>
-      <%= @place.name %><br>
-    </p>
-    <p>
+    <h4>
       Address: <br>
       <%= @place.address %><br>
-    </p>
-    <p>
+    </h4>
+    <h4>
       Description: <br>
       <%= @place.description %><br>
-    </p>
-    <p>
-      Happy Hour Description: <br>
+    </h4>
+    <h4>
+      Happy Hour: <br>
       <%= @place.hh_description %><br>
-    </p>
+    </h4>
+    <% if @place.happy_hours.length > 0 %>
+      <h2>Happy Hour</h2>
+      <h4>
+        Details: <br>
+        <%= @place.happy_hours.first.details %><br>
+      </h4>
+      <h4>
+        Time:
+        <%= @place.happy_hours.first.start_time.strftime(" %l:%M %p ") %> -
+        <%= @place.happy_hours.first.end_time.strftime(" %l:%M %p ") %><br>
+      </h4>
+    <% else %>
+      <h4>
+        Does <%= @place.name %> have happy hour?<br>
+        <%= link_to "Add happy hour", new_happy_hour_path(id: @place.id) %>
+      </h4>
+    <% end %>
   </div>
   <div class="col-sm-6">
     <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary" %>
-    <p>MAP GOES HERE?</p>
+    <h4>MAP GOES HERE?</h4>
   </div>
 </div>
