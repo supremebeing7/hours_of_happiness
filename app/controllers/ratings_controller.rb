@@ -7,13 +7,15 @@ class RatingsController < ApplicationController
 
   def new
     @rating = Rating.new
+    @place = Place.find(params[:id])
+    @user = current_user
   end
 
   def create
     @rating = Rating.new(rating_params)
     if @rating.save
       flash[:notice] = "Thanks for adding #{@rating.place.name}!"
-      redirect_to @rating
+      redirect_to @rating.place
     else
       render new_rating_path
     end
@@ -47,6 +49,6 @@ class RatingsController < ApplicationController
 
 private
   def rating_params
-    params.require(:rating).permit(:place_id, :review, :score)
+    params.require(:rating).permit(:place_id, :user_id, :review, :score)
   end
 end

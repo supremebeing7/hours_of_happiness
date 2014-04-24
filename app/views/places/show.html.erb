@@ -37,3 +37,25 @@
     <h4>MAP GOES HERE?</h4>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Reviews</h4>
+    <% if @place.ratings.count > 0 %>
+      <% @place.ratings.order(:updated_at).each do |rating| %>
+        <h2>
+          <% rating.score.times do %>
+            <%= "\u2605" %>
+          <% end %>
+        </h2>
+        <p><%= rating.review %></p>
+        <% if rating.user_id == current_user.id %>
+          <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h4><%= @place.name %> has not yet been rated.</h4>
+      <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
