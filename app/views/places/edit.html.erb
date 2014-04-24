@@ -1,0 +1,5 @@
+<h1>Edit <%= @place.name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Place", @place, method: "delete", confirm: "Are you sure?" %>
