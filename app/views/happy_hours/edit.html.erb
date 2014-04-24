@@ -1,0 +1,5 @@
+<h1>Edit Happy Hour for <%= @happy_hour.place.name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Happy Hour", @place, method: "delete", confirm: "Are you sure?" %>

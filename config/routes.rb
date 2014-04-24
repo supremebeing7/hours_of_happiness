@@ -4,4 +4,6 @@ HoursOfHappiness::Application.routes.draw do
 
   match '/home', { :via => :get, :to => 'pages#home' }
   resources :places
+  resources :happy_hours
+  resources :ratings
 end

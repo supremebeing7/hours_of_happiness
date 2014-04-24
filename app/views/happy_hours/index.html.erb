@@ -1,0 +1,13 @@
+<h1>Happy Hours</h1>
+
+<% @happy_hours.each do |happy_hour| %>
+  <p>
+    Name: <%= happy_hour.place.name %><br>
+    Address: <%= happy_hour.place.address %><br>
+    Description: <%= happy_hour.place.description %><br>
+    <br>
+    Happy Hour: <%= happy_hour.start_time.strftime(" %l:M %p") %>
+    - <%= happy_hour.end_time.strftime(" %l:M %p") %><br>
+    Details: <%= happy_hour.details %><br>
+  </p>
+<% end %>
