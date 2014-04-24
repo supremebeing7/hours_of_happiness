@@ -23,7 +23,6 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @name = @place.name
-    @location = @place.location
   end
 
   def edit
