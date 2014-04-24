@@ -1,9 +1,9 @@
 <h2>We're here to help you find Hours of Happiness</h2>
 
 <ul>
-  <% @establishments.each do |establishment| %>
-    <li><%= link_to "#{establishment.name}", establishment_path(establishment) %>
+  <% @places.each do |place| %>
+    <li><%= link_to "#{place.name}", place_path(place) %>
   <% end %>
 </ul>
 
-<%= link_to "Add New Establishment", new_establishment_path %>
+<%= link_to "Add New Establishment", new_place_path %>
