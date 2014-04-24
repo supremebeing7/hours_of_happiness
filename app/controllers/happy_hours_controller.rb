@@ -7,6 +7,7 @@ class HappyHoursController < ApplicationController
 
   def new
     @happy_hour = HappyHour.new
+    @place = Place.find(params[:id])
   end
 
   def create
