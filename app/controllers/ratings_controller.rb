@@ -27,6 +27,7 @@ class RatingsController < ApplicationController
 
   def edit
     @rating = Rating.find(params[:id])
+    @place = @rating.place
   end
 
   def update

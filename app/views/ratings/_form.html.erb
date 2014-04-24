@@ -2,8 +2,19 @@
 
 <%= form_for @rating, :html => { :multipart => true } do |f| %>
   <div class='form-group'>
-    <%= f.label "Stars" %><br>
-    <%= f.number_field :score %>
+    <h4>Rating</h4>
+    <h2>
+      <%= f.radio_button :score, "5" %>
+      <%= f.label "\u2605 \u2605 \u2605 \u2605 \u2605" %><br>
+      <%= f.radio_button :score, "4" %>
+      <%= f.label "\u2605 \u2605 \u2605 \u2605" %><br>
+      <%= f.radio_button :score, "3" %>
+      <%= f.label "\u2605 \u2605 \u2605" %><br>
+      <%= f.radio_button :score, "2" %>
+      <%= f.label "\u2605 \u2605" %><br>
+      <%= f.radio_button :score, "1" %>
+      <%= f.label "\u2605" %><br>
+    </h2>
   </div>
   <div class="form-group">
     <%= f.text_area :review, :placeholder => 'What did you like/dislike?', rows: 8, cols: 50 %>
