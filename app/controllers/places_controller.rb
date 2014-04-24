@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
     if @place.save
       session[:place_id] = @place.id
       flash[:notice] = "Thanks for adding #{@place.name}!"
-      redirect_to :back
+      redirect_to @place
     else
       render new_place_path
     end
