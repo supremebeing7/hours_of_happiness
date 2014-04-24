@@ -1,6 +1,6 @@
 # Hours of Happiness
 
-[-] As a user, I want to sign in so that I can interact with the site.
+[-] *DONE* As a user, I want to sign in so that I can interact with the site.
 
 [-] As a user, I want to add a food/drink establishment to the site so that I can add its happy hour info.
 
