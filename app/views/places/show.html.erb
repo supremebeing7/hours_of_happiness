@@ -15,8 +15,17 @@
       <%= @place.description %><br>
     </p>
     <p>
-      Happy Hour Description: <br>
-      <%= @place.hh_description %><br>
+      <h4>Happy Hour</h4>
+      Description: <%= @place.hh_description %><br>
+    </p>
+    <p>
+      Details: <br>
+      <%= @place.happy_hours.first.details %><br>
+    </p>
+    <p>
+      Time:
+      <%= @place.happy_hours.first.start_time.strftime(" %l:%M %p ") %> -
+      <%= @place.happy_hours.first.end_time.strftime(" %l:%M %p ") %><br>
     </p>
   </div>
   <div class="col-sm-6">

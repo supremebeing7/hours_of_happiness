@@ -1,0 +1,15 @@
+<%= render 'layouts/errors', object: @happy_hour %>
+
+<%= form_for @happy_hour, :html => { :multipart => true } do |f| %>
+  <div class='form-group'>
+    <%= f.time_field :start_time, :placeholder => 'Start Time'  %>
+  </div>
+  <div class="form-group">
+    <%= f.time_field :end_time, :placeholder => 'End Time' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :details, :placeholder => 'Details', rows: 8, cols: 50 %>
+  </div>
+  <%= f.hidden_field :place_id, value: @place.id %>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

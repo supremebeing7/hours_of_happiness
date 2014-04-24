@@ -12,7 +12,6 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     if @place.save
-      session[:place_id] = @place.id
       flash[:notice] = "Thanks for adding #{@place.name}!"
       redirect_to @place
     else
