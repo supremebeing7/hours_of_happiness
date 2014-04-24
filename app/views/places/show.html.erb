@@ -1,0 +1,26 @@
+<h1><%= @place.name %></h1>
+
+<div class="row">
+  <div class="col-sm-6">
+    <p>
+      Name: <br>
+      <%= @place.name %><br>
+    </p>
+    <p>
+      Address: <br>
+      <%= @place.address %><br>
+    </p>
+    <p>
+      Description: <br>
+      <%= @place.description %><br>
+    </p>
+    <p>
+      Happy Hour Description: <br>
+      <%= @place.hh_description %><br>
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary" %>
+    <p>MAP GOES HERE?</p>
+  </div>
+</div>
