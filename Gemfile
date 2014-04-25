@@ -17,6 +17,8 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rest-client'
 gem 'textacular'
 gem 'geocoder'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :development do
   gem 'better_errors'

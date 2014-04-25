@@ -25,6 +25,28 @@
         Does <%= @place.name %> have happy hour?<br></h4>
         <%= link_to "Add Happy Hour", new_happy_hour_path(id: @place.id), :class => "btn btn-primary" %>
     <% end %>
+  </div>
+  <div class="col-sm-6">
+    <% if @address %>
+      <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
+          &q=<%= @name %>+<%= @address %>">
+    <% else %>
+      <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
+          &q=<%= @name %>">
+    <% end %>
+      </iframe>
+    <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary" %>
+
+  </div>
+</div>
 
     <h4>Reviews</h4>
     <% if @place.ratings.count > 0 %>
@@ -35,7 +57,7 @@
           <% end %>
         </h2>
         <p><%= rating.review %></p>
-        <% if rating.user_id == current_user.id %>
+        <% if current_user && rating.user_id == current_user.id %>
           <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
         <% elsif %>
           <h4>You have not reviewed <%= @place.name %></h4>
