@@ -34,7 +34,7 @@ class RatingsController < ApplicationController
     @rating = Rating.find(params[:id])
     if @rating.update(rating_params)
       flash[:notice] = "Thanks for the update to #{@rating.place.name}!"
-      redirect_to rating_path(@rating)
+      redirect_to @rating.place
     else
       flash[:notice] = 'Failed to Update'
       render edit_rating_path(@rating)

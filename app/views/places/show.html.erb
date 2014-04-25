@@ -32,15 +32,24 @@
     <% end %>
   </div>
   <div class="col-sm-6">
-    <iframe
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
-        &q=<%= @name %>">
-    </iframe>
+    <% if @address %>
+      <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
+          &q=<%= @name %>+<%= @address %>">
+    <% else %>
+      <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
+          &q=<%= @name %>">
+    <% end %>
+      </iframe>
     <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary" %>
-    <h4>MAP GOES HERE?</h4>
+
   </div>
 </div>
 
@@ -55,7 +64,7 @@
           <% end %>
         </h2>
         <p><%= rating.review %></p>
-        <% if rating.user_id == current_user.id %>
+        <% if current_user && rating.user_id == current_user.id %>
           <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
         <% end %>
       <% end %>
