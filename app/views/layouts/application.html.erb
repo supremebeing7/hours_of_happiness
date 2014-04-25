@@ -11,6 +11,8 @@
     <div class="container">
       <%= link_to "Hours of Happiness", root_url,
           :class => "navbar-text navbar-left" %>
+      <%= link_to "Add New Place", new_place_path,
+          :class => "navbar-text navbar-left" %>
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
             :class => "navbar-text navbar-right" %>

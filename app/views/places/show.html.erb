@@ -1,36 +1,53 @@
-<h1><%= @place.name %></h1><%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %><br><br>
+<h1><%= @place.name %>   <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %></h1><br>
 
 <div class="row">
   <div class="col-sm-6">
-    <h4>Address: <br>
-      <%= @place.address %><br>
-    </h4>
-    <h4>
-      Description: <br>
-      <%= @place.description %><br>
-    </h4>
-    <h4>
-      Happy Hour: <br>
-      <%= @place.hh_description %><br>
-    </h4>
+    <% if @place.address %>
+      <h4>Address: <br></h4>
+        <%= @place.address %><br>
+    <% end %>
+
+    <h4>Description: <br></h4>
+      <%= @place.description %><br><br>
+
     <% if @place.happy_hours.length > 0 %>
       <h2>Happy Hour</h2>
-      <h4>
-        Details: <br>
+      <h4>Details:<br></h4>
         <%= @place.happy_hours.first.details %><br>
-      </h4>
+
       <h4>
         Time:
         <%= @place.happy_hours.first.start_time.strftime(" %l:%M %p ") %> -
-        <%= @place.happy_hours.first.end_time.strftime(" %l:%M %p ") %><br>
+        <%= @place.happy_hours.first.end_time.strftime(" %l:%M %p ") %><br><br>
       </h4>
     <% else %>
       <h4>
-        Does <%= @place.name %> have happy hour?<br>
-        <%= link_to "Add happy hour", new_happy_hour_path(id: @place.id) %>
-      </h4>
+        Does <%= @place.name %> have happy hour?<br></h4>
+        <%= link_to "Add Happy Hour", new_happy_hour_path(id: @place.id), :class => "btn btn-primary" %>
+    <% end %>
+
+    <h4>Reviews</h4>
+    <% if @place.ratings.count > 0 %>
+      <% @place.ratings.order(:updated_at).each do |rating| %>
+        <h2>
+          <% rating.score.times do %>
+            <img src="http://openclipart.org/image/45px/svg_to_png/73591/beer1.png">
+          <% end %>
+        </h2>
+        <p><%= rating.review %></p>
+        <% if rating.user_id == current_user.id %>
+          <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
+        <% elsif %>
+          <h4>You have not reviewed <%= @place.name %></h4>
+          <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h4><%= @place.name %> hasn't been reviewed yet. Be the first!</h4>
+      <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
     <% end %>
   </div>
+
   <div class="col-sm-6">
     <iframe
       width="600"
@@ -39,29 +56,5 @@
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzW0SvELhV_eiTPvfxBtHrGd5oBozh2Uc
         &q=<%= @name %>">
     </iframe>
-    <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary" %>
-    <h4>MAP GOES HERE?</h4>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-6">
-    <h4>Reviews</h4>
-    <% if @place.ratings.count > 0 %>
-      <% @place.ratings.order(:updated_at).each do |rating| %>
-        <h2>
-          <% rating.score.times do %>
-            <%= "\u2605" %>
-          <% end %>
-        </h2>
-        <p><%= rating.review %></p>
-        <% if rating.user_id == current_user.id %>
-          <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
-        <% end %>
-      <% end %>
-    <% else %>
-      <h4><%= @place.name %> has not yet been rated.</h4>
-      <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
-    <% end %>
   </div>
 </div>
