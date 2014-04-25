@@ -1,4 +1,4 @@
-<h1><%= @place.name %>   <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %></h1><br><br>
+<h1><%= @place.name %>   <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %></h1><br>
 
 <div class="row">
   <div class="col-sm-6">
@@ -8,10 +8,7 @@
     <% end %>
 
     <h4>Description: <br></h4>
-      <%= @place.description %><br>
-
-    <h4>Happy Hour: <br></h4>
-      <%= @place.hh_description %><br>
+      <%= @place.description %><br><br>
 
     <% if @place.happy_hours.length > 0 %>
       <h2>Happy Hour</h2>
@@ -26,7 +23,7 @@
     <% else %>
       <h4>
         Does <%= @place.name %> have happy hour?<br></h4>
-        <%= link_to "Add happy hour", new_happy_hour_path(id: @place.id), :class => "btn btn-primary" %>
+        <%= link_to "Add Happy Hour", new_happy_hour_path(id: @place.id), :class => "btn btn-primary" %>
     <% end %>
 
     <h4>Reviews</h4>
@@ -40,10 +37,13 @@
         <p><%= rating.review %></p>
         <% if rating.user_id == current_user.id %>
           <%= link_to "Edit Review", edit_rating_path(rating), class: "btn btn-warning btn-sm" %>
+        <% elsif %>
+          <h4>You have not reviewed <%= @place.name %></h4>
+          <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
         <% end %>
       <% end %>
     <% else %>
-      <h4><%= @place.name %> has not yet been rated.</h4>
+      <h4><%= @place.name %> hasn't been reviewed yet. Be the first!</h4>
       <%= link_to "Add Rating", new_rating_path(id: @place.id), class: "btn btn-primary" %>
     <% end %>
   </div>
