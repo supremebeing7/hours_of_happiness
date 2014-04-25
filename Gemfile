@@ -29,10 +29,12 @@ group :test, :development do
   gem 'letter_opener'
   gem 'pry'
   gem 'dotenv-rails'
+  gem 'poltergeist'
+  gem 'factory_girl_rails'
+  gem 'factory_girl'
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'factory_girl_rails'
 end
