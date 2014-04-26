@@ -8,4 +8,5 @@ HoursOfHappiness::Application.routes.draw do
   resources :happy_hours
   resources :ratings
   resources :password_resets
+  resources :reports, only: [:new, :create]
 end
