@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    name "Jack Reacher"
-    username  "DragonSlayer"
-    email "jackreacher@tomcruise.com"
+    name Faker::Name.name
+    email Faker::Internet.email
+    username  Faker::Internet.user_name
     password "password123"
     password_confirmation "password123"
   end
@@ -26,5 +26,9 @@ FactoryGirl.define do
     place "Three Doors Down"
     score "4"
     review "This place is a little more high-end than I like, but I do like vodka and sausage!"
+  end
+
+  factory :report do
+    description "Major complaints about this page!"
   end
 end

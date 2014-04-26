@@ -5,7 +5,7 @@ class Report < ActiveRecord::Base
   after_create :send_report_email
 
   def send_report_email
-    ReportMailer.deliver_admin_report(self)
-    ReportMailer.deliver_user_report(self)
+    ReportMailer.admin_report(self).deliver
+    ReportMailer.user_report(self).deliver
   end
 end
