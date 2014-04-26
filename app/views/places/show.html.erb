@@ -1,4 +1,4 @@
-<h1><%= @place.name %>   <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %></h1>   <h6><%= link_to "Report Content", places_path %></h6><br>
+<h1><%= @place.name %>   <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-primary btn-sm" %></h1>   <h6><%= link_to "Report Content", new_report_path(id: @place.id) %></h6><br>
 
 <div class="row">
   <div class="col-sm-6">

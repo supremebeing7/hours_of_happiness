@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :name, :password, presence: true
   validates :email, presence: true, uniqueness: true
   validates :username, uniqueness: true, presence: true
+  has_many :reports
 
   Roles = [ :admin, :default ]
 

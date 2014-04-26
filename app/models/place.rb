@@ -6,4 +6,5 @@ class Place < ActiveRecord::Base
 
   has_many :happy_hours
   has_many :ratings
+  has_many :reports
 end
