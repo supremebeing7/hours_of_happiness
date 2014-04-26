@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
+  Roles = [ :admin, :default ]
 end
