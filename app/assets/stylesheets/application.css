@@ -32,3 +32,9 @@ ul {
 #home {
   font-size: 20px;
 }
+
+.nav-photo {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+}

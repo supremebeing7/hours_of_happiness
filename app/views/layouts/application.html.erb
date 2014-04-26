@@ -16,12 +16,14 @@
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
             :class => "navbar-text navbar-right" %>
-        <%= link_to "Logged in as #{current_user.username}", edit_user_registration_path,
+        <%= image_tag current_user.photo_url, :class => "nav-photo navbar-right" %>
+        <%= link_to "Logged in as #{current_user.name}", edit_user_registration_path,
             :class => "navbar-text navbar-right" %>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path,
+        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), :class => "navbar-text navbar-right" %>
+        <%= link_to "Sign in", new_user_session_path,
             :class => "navbar-text navbar-right" %>
-        <%= link_to "Login", new_user_session_path,
+        <%= link_to "Sign up", new_user_registration_path,
             :class => "navbar-text navbar-right" %>
       <% end %>
     </div>
