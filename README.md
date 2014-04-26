@@ -7,12 +7,17 @@
 **DONE**
 
 [-] As a user, I want to rate an establishment so that my opinion may be aggregated into the mix.
+**DONE**
+
+[-] As an unsigned in or signed in user, I want to see a map of each place integrated into the site so I can easily see where it is and search for directions.
+**DONE**
 
 [-] As a admin, I want to delete/edit erroneous or offensive information so that I can regulate the site's content.
 
 [-] As a user, I want to be able to report/flag erroneous or offensive information so that the site may be updated more quickly.
 
 [-] As a user, I want to be able to leave reviews on establishments so that I may help make the site more effective.
+**DONE**
 
 [-] As an unsigned in or signed in user, I want to be able to use an interactive map to seach areas for establishments with happy hours so that I may gain information to make responsible happy hour decisions.
 
