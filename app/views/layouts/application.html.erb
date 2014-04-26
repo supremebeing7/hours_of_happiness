@@ -16,9 +16,9 @@
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
             :class => "navbar-text navbar-right" %>
+        <%= image_tag current_user.photo_url, :class => "nav-photo navbar-right" %>
         <%= link_to "Logged in as #{current_user.name}", edit_user_registration_path,
             :class => "navbar-text navbar-right" %>
-        <%= image_tag current_user.photo_url %>
       <% else %>
         <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), :class => "navbar-text navbar-right" %>
         <%= link_to "Sign in", new_user_session_path,
