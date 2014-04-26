@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def full_size_pic
+    self.photo_url.sub('?sz=50', '')
+  end
 end

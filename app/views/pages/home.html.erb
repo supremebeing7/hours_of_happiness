@@ -1,7 +1,14 @@
 <h2>We're here to help you find Hours of Happiness</h2>
 
-<ul>
-  <% @places.each do |place| %>
-    <li id="home"><%= link_to "#{place.name}", place_path(place) %>
-  <% end %>
-</ul><br>
+<div class="row">
+  <div class="col-sm-8">
+    <ul>
+      <% @places.each do |place| %>
+        <li id="home"><%= link_to "#{place.name}", place_path(place) %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <%= image_tag current_user.full_size_pic if current_user %>
+  </div>
+</div>
