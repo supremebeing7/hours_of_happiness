@@ -5,6 +5,7 @@ FactoryGirl.define do
     email "jackreacher@tomcruise.com"
     password "password123"
     password_confirmation "password123"
+    photo_url "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50"
   end
 
   factory :place do
