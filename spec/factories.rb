@@ -3,6 +3,7 @@ FactoryGirl.define do
     name "Jack Reacher"
     username  "DragonSlayer"
     email "jackreacher@tomcruise.com"
+    photo_url "http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"
     password "password123"
     password_confirmation "password123"
   end
